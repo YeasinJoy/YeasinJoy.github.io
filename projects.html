@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projects by Yeasin Morshed Joy — Full-Stack Web Development, AI/ML Systems & Embedded Prototypes.">
+  <meta name="author" content="Yeasin Morshed Joy">
+  <title>Projects | Yeasin Morshed Joy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .page-intro {
+      padding: 60px 0 30px;
+    }
+    .page-title {
+      font-size: clamp(30px, 4vw, 42px);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+    .page-subtitle {
+      color: var(--text-muted);
+      font-size: 16px;
+      max-width: 650px;
+    }
+
+    .filter-wrapper {
+      margin: 25px 0 35px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/profile.jpg" alt="Yeasin" class="nav-brand-avatar">
+        Yeasin M. Joy <span>/ CSE</span>
+      </a>
+
+      <div class="nav-right">
+        <nav class="nav-links" id="navLinks">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="projects.html" class="nav-link active">Projects</a>
+          <a href="about.html" class="nav-link">About & Experience</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="assets/cv_yeasin_morshed_joy.pdf" target="_blank" class="btn-resume">
+            <i class="fa-solid fa-file-pdf"></i> Resume
+          </a>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+            <i class="fa-solid fa-sun" id="themeIcon"></i>
+          </button>
+          <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- Page Header -->
+    <section class="page-intro">
+      <div class="status-badge">
+        <span class="pulse-dot"></span> 8 Production & Research Projects
+      </div>
+      <h1 class="page-title">Technical Projects & Research</h1>
+      <p class="page-subtitle">
+        Explore practical applications spanning machine learning, explainable AI, full-stack web platforms, and embedded robotics.
+      </p>
+
+      <div class="filter-wrapper">
+        <div class="filter-tabs">
+          <button class="filter-tab active" onclick="filterProjects('all', this)">All Projects (8)</button>
+          <button class="filter-tab" onclick="filterProjects('ml', this)">AI & Machine Learning (3)</button>
+          <button class="filter-tab" onclick="filterProjects('web', this)">Full-Stack & Web (4)</button>
+          <button class="filter-tab" onclick="filterProjects('iot', this)">Embedded & Systems (1)</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- All Projects Grid -->
+    <section class="projects-grid" id="projectsGrid">
+
+      <!-- Project 1: Explainable AI -->
+      <article class="project-card" data-category="ml">
+        <div>
+          <div class="card-top">
+            <span class="category-badge">Final Year Project • ML</span>
+            <div class="card-links">
+              <a href="https://github.com/YeasinJoy" target="_blank" title="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Explainable AI Home Loan Approval</h3>
+          <p class="project-desc">
+            An interpretable machine learning system for credit risk evaluation and home loan approval. Integrates XGBoost, CatBoost, and LightGBM classification models with SHAP and LIME to generate clear, transparent decision reasoning for lenders and applicants.
+          </p>
+        </div>
+        <div class="tech-tags">
+          <span class="tech-tag">XGBoost</span>
+          <span class="tech-tag">CatBoost</span>
+          <span class="tech-tag">LightGBM</span>
+          <span class="tech-tag">SHAP</span>
+          <span class="tech-tag">LIME</span>
+          <span class="tech-tag">Python</span>
+        </div>
+      </article>
+
+      <!-- Project 2: Civic Desk -->
+      <article class="project-card" data-category="web">
+        <div>
+          <div class="card-top">
+            <span class="category-badge">Full-Stack • Web</span>
+            <div class="card-links">
+              <a href="https://github.com/yeasinmorshedjoy/civic_desk" target="_blank" title="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Civic Desk Management System</h3>
+          <p class="project-desc">
+            A centralized civic governance platform enabling citizens to register municipal complaints, categorize issues, and track end-to-end resolution statuses with administrative auditing tools and MySQL relational storage.
+          </p>
+        </div>
+        <div class="tech-tags">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Django</span>
+          <span class="tech-tag">MySQL</span>
+          <span class="tech-tag">Bootstrap</span>
+        </div>
+      </article>
+
+      <!-- Project 3: Puurfect Pals -->
+      <article class="project-card" data-category="web">
+        <div>
+          <div class="card-top">
+            <span class="category-badge">Full-Stack • Web</span>
+            <div class="card-links">
+              <a href="https://github.com/YeasinJoy/-Puurfect_Pals.git" target="_blank" title="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Puurfect Pals Pet Adoption</h3>
+          <p class="project-desc">
+            A responsive pet adoption portal connecting prospective adopters with rescue listings, verified veterinary directories, image management pipelines, and contact request workflows.
+          </p>
+        </div>
+        <div class="tech-tags">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Django</span>
+          <span class="tech-tag">MySQL</span>
+          <span class="tech-tag">HTML5/CSS3</span>
+        </div>
+      </article>
+
+      <!-- Project 4: Employee Management System -->
+      <article class="project-card" data-category="web">
+        <div>
+          <div class="card-top">
+            <span class="category-badge">Full-Stack • React / Node</span>
+            <div class="card-links">
+              <a href="https://github.com/YeasinJoy/employee-management-system" target="_blank" title="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Employee Management System</h3>
+          <p class="project-desc">
+            A full-stack CRUD application for workforce record management featuring server-side validation, secure JWT-based admin authentication, relational database schema seeding, and interactive dashboard views.
+          </p>
+        </div>
+        <div class="tech-tags">
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Node.js</span>
+          <span class="tech-tag">Express</span>
+          <span class="tech-tag">MySQL</span>
+          <span class="tech-tag">JWT</span>
+        </div>
+      </article>
+
+      <!-- Project 5: Local Store -->
+      <article class="project-card" data-category="web">
+        <div>
+          <div class="card-top">
+            <span class="category-badge">E-Commerce • React</span>
+            <div class="card-links">
+              <a href="https://github.com/YeasinJoy/local-store" target="_blank" title="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Local Store E-commerce Platform</h3>
+          <p class="project-desc">
+            A full-stack e-commerce solution with dynamic product catalogs, detailed product inspect views, session-based shopping cart handling, and a protected administrative inventory dashboard.
+          </p>
+        </div>
+        <div class="tech-tags">
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Vite</span>
+          <span class="tech-tag">Node.js</span>
+          <span class="tech-tag">Express</span>
+          <span class="tech-tag">SQLite</span>
+        </div>
+      </article>
+
+      <!-- Project 6: Road Condition Classification -->
+      <article class="project-card" data-category="ml">
+        <div>
+          <div class="card-top">
+            <span class="category-badge">Machine Learning</span>
+            <div class="card-links">
+              <a href="https://github.com/YeasinJoy/Road_Condition_and_Surface_Type_Classification" target="_blank" title="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Road Surface & Hazard Classifier</h3>
+          <p class="project-desc">
+            Machine learning model trained to detect road surface irregularities and classify terrain types. Implements specialized statistical preprocessing, dimensionality handling, and supervised classification pipelines.
+          </p>
+        </div>
+        <div class="tech-tags">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Scikit-learn</span>
+          <span class="tech-tag">Data Preprocessing</span>
+          <span class="tech-tag">Feature Extraction</span>
+        </div>
+      </article>
+
+      <!-- Project 7: SmartSignal AI -->
+      <article class="project-card" data-category="ml">
+        <div>
+          <div class="card-top">
+            <span class="category-badge">AI / Automation</span>
+            <div class="card-links">
+              <a href="https://github.com/YeasinJoy" target="_blank" title="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">SmartSignal AI Traffic Network</h3>
+          <p class="project-desc">
+            An intelligent traffic simulation and emergency dispatch prototype. Dynamically computes intersection throughput, orchestrates coordinated signal patterns, and grants prioritized green-wave routing for emergency vehicles.
+          </p>
+        </div>
+        <div class="tech-tags">
+          <span class="tech-tag">AI Simulation</span>
+          <span class="tech-tag">Docker</span>
+          <span class="tech-tag">n8n</span>
+          <span class="tech-tag">React / Web</span>
+        </div>
+      </article>
+
+      <!-- Project 8: Smart Obstacle Avoiding Robot -->
+      <article class="project-card" data-category="iot">
+        <div>
+          <div class="card-top">
+            <span class="category-badge">Embedded Systems • Robotics</span>
+            <div class="card-links">
+              <a href="https://github.com/YeasinJoy/Smart-Obstacle-Avoiding-Robot" target="_blank" title="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Smart Obstacle Avoiding Robot</h3>
+          <p class="project-desc">
+            Autonomous microcontroller-based robotic platform utilizing ultrasonic distance telemetry to detect barriers in real-time, executing adaptive motor steering loops and activating sensory alarm indicators.
+          </p>
+        </div>
+        <div class="tech-tags">
+          <span class="tech-tag">Arduino Uno</span>
+          <span class="tech-tag">C/C++</span>
+          <span class="tech-tag">HC-SR04</span>
+          <span class="tech-tag">L293D Motor Shield</span>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Yeasin Morshed Joy · Software Engineer</p>
+      <div class="footer-links">
+        <a href="https://github.com/YeasinJoy" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/yeasin-morshed-joy-aa8b80239/" target="_blank">LinkedIn</a>
+        <a href="mailto:yeasinmorshedjoy@gmail.com">Email</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

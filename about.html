@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Yeasin Morshed Joy — Background, Work Experience, Education, and Technical Skillset.">
+  <meta name="author" content="Yeasin Morshed Joy">
+  <title>About & Experience | Yeasin Morshed Joy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .about-hero {
+      padding: 60px 0 40px;
+    }
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 50px;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+    @media (max-width: 860px) {
+      .about-layout { grid-template-columns: 1fr; }
+      .about-portrait-wrap { order: -1; }
+    }
+
+    .about-title {
+      font-size: clamp(30px, 4vw, 42px);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
+    }
+    .about-text {
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .about-text strong {
+      color: var(--text);
+    }
+
+    .about-portrait {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: var(--card-hover-shadow);
+      display: block;
+    }
+
+    /* Experience & Education Layout */
+    .timeline-section {
+      margin-bottom: 60px;
+    }
+    .timeline-container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .timeline-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--card-shadow);
+      transition: border-color 0.2s;
+    }
+    .timeline-item:hover {
+      border-color: var(--border-hover);
+    }
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .timeline-role {
+      font-size: 17px;
+      font-weight: 600;
+    }
+    .timeline-date {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: var(--text-subtle);
+    }
+    .timeline-org {
+      font-size: 14px;
+      color: var(--accent-hover);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+    .timeline-body {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .timeline-bullets {
+      margin-top: 10px;
+      padding-left: 18px;
+    }
+    .timeline-bullets li {
+      margin-bottom: 6px;
+    }
+
+    /* Skills Detailed Grid */
+    .skills-section {
+      margin-bottom: 60px;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 768px) {
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+    .skill-category-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--card-shadow);
+    }
+    .skill-category-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .skill-category-title i {
+      color: var(--accent-hover);
+    }
+    .skills-pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .skill-chip {
+      background: var(--badge-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 13px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/profile.jpg" alt="Yeasin" class="nav-brand-avatar">
+        Yeasin M. Joy <span>/ CSE</span>
+      </a>
+
+      <div class="nav-right">
+        <nav class="nav-links" id="navLinks">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="projects.html" class="nav-link">Projects</a>
+          <a href="about.html" class="nav-link active">About & Experience</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="assets/cv_yeasin_morshed_joy.pdf" target="_blank" class="btn-resume">
+            <i class="fa-solid fa-file-pdf"></i> Resume
+          </a>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+            <i class="fa-solid fa-sun" id="themeIcon"></i>
+          </button>
+          <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- Hero / Bio -->
+    <section class="about-hero">
+      <div class="about-layout">
+        <div>
+          <div class="status-badge">
+            <span class="pulse-dot"></span> About Me
+          </div>
+          <h1 class="about-title">A developer focused on craft, systems, and practical intelligence.</h1>
+          <p class="about-text">
+            I am <strong>Yeasin Morshed Joy</strong>, an aspiring software engineer and Computer Science & Engineering undergraduate at the <strong>University of Asia Pacific</strong> in Dhaka, Bangladesh.
+          </p>
+          <p class="about-text">
+            My engineering work bridges two complementary areas: <strong>full-stack web application development</strong> (using Python, Django, React, and Node.js) and <strong>applied machine learning</strong> (specializing in Explainable AI frameworks such as SHAP and LIME).
+          </p>
+          <p class="about-text">
+            Whether architecting relational databases, refining responsive user interfaces, or interpreting machine learning predictions for real-world credit risk decisions, I focus on building reliable, well-tested, and transparent software.
+          </p>
+          <div style="margin-top: 24px;">
+            <a href="assets/cv_yeasin_morshed_joy.pdf" target="_blank" class="btn btn-primary">
+              <i class="fa-solid fa-file-pdf"></i> Download Official CV
+            </a>
+          </div>
+        </div>
+
+        <div class="about-portrait-wrap">
+          <img src="assets/profile.jpg" alt="Yeasin Morshed Joy" class="about-portrait">
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience & Education -->
+    <section class="timeline-section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Experience & Education</h2>
+          <p class="section-subtitle">Professional engagements and academic foundation.</p>
+        </div>
+      </div>
+
+      <div class="timeline-container">
+        <!-- GAOTek -->
+        <article class="timeline-item">
+          <div class="timeline-header">
+            <h3 class="timeline-role">Web Development Intern</h3>
+            <span class="timeline-date">2026 — Present</span>
+          </div>
+          <div class="timeline-org">GAOTek Inc. · Remote</div>
+          <div class="timeline-body">
+            <p>Contributing to web development operations within a globally distributed technical team:</p>
+            <ul class="timeline-bullets">
+              <li>Building and maintaining responsive web components, improving mobile rendering and UX consistency.</li>
+              <li>Implementing front-end and back-end updates, managing web platform maintenance, and conducting asset optimization.</li>
+              <li>Collaborating on technical documentation, task tracking, and cross-functional agile development sprints.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- UAP -->
+        <article class="timeline-item">
+          <div class="timeline-header">
+            <h3 class="timeline-role">B.Sc. in Computer Science & Engineering</h3>
+            <span class="timeline-date">2022 — Present</span>
+          </div>
+          <div class="timeline-org">University of Asia Pacific · Dhaka, Bangladesh</div>
+          <div class="timeline-body">
+            <p>Undergraduate degree covering computer science theory, systems architecture, and engineering practice:</p>
+            <ul class="timeline-bullets">
+              <li><strong>Core Coursework:</strong> Algorithms & Complexity, Data Structures, Relational Database Systems (RDBMS), Object-Oriented Programming, Machine Learning, Operating Systems, Computer Networks.</li>
+              <li><strong>Final Year Capstone:</strong> Conducted research on Explainable AI for Home Loan Approval using SHAP and LIME to interpret gradient-boosted decision tree models.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Detailed Technical Skills -->
+    <section class="skills-section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Technical Expertise</h2>
+          <p class="section-subtitle">Comprehensive toolkit and programming capabilities.</p>
+        </div>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-category-card">
+          <h3 class="skill-category-title"><i class="fa-solid fa-code"></i> Programming Languages</h3>
+          <div class="skills-pill-group">
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">JavaScript (ES6+)</span>
+            <span class="skill-chip">C</span>
+            <span class="skill-chip">C++</span>
+            <span class="skill-chip">Java</span>
+            <span class="skill-chip">SQL</span>
+            <span class="skill-chip">Swift</span>
+          </div>
+        </div>
+
+        <div class="skill-category-card">
+          <h3 class="skill-category-title"><i class="fa-solid fa-layer-group"></i> Full-Stack & Web Frameworks</h3>
+          <div class="skills-pill-group">
+            <span class="skill-chip">Django</span>
+            <span class="skill-chip">React.js</span>
+            <span class="skill-chip">Node.js</span>
+            <span class="skill-chip">Express.js</span>
+            <span class="skill-chip">RESTful APIs</span>
+            <span class="skill-chip">Bootstrap</span>
+            <span class="skill-chip">HTML5 / CSS3</span>
+            <span class="skill-chip">Laravel</span>
+          </div>
+        </div>
+
+        <div class="skill-category-card">
+          <h3 class="skill-category-title"><i class="fa-solid fa-brain"></i> AI & Machine Learning</h3>
+          <div class="skills-pill-group">
+            <span class="skill-chip">Scikit-learn</span>
+            <span class="skill-chip">XGBoost</span>
+            <span class="skill-chip">CatBoost</span>
+            <span class="skill-chip">LightGBM</span>
+            <span class="skill-chip">SHAP (Explainable AI)</span>
+            <span class="skill-chip">LIME</span>
+            <span class="skill-chip">Feature Engineering</span>
+            <span class="skill-chip">TensorFlow / PyTorch</span>
+          </div>
+        </div>
+
+        <div class="skill-category-card">
+          <h3 class="skill-category-title"><i class="fa-solid fa-screwdriver-wrench"></i> Databases & Developer Tools</h3>
+          <div class="skills-pill-group">
+            <span class="skill-chip">MySQL</span>
+            <span class="skill-chip">SQLite</span>
+            <span class="skill-chip">Git & GitHub</span>
+            <span class="skill-chip">Docker</span>
+            <span class="skill-chip">n8n Automation</span>
+            <span class="skill-chip">Arduino & Embedded</span>
+            <span class="skill-chip">VS Code</span>
+            <span class="skill-chip">Overleaf / LaTeX</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Yeasin Morshed Joy · Software Engineer</p>
+      <div class="footer-links">
+        <a href="https://github.com/YeasinJoy" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/yeasin-morshed-joy-aa8b80239/" target="_blank">LinkedIn</a>
+        <a href="mailto:yeasinmorshedjoy@gmail.com">Email</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

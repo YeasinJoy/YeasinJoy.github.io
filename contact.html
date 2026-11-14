@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Yeasin Morshed Joy — Get in touch for software engineering, web development, and AI/ML opportunities.">
+  <meta name="author" content="Yeasin Morshed Joy">
+  <title>Contact | Yeasin Morshed Joy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .contact-hero {
+      padding: 60px 0 30px;
+    }
+    .contact-title {
+      font-size: clamp(30px, 4vw, 42px);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .contact-subtitle {
+      color: var(--text-muted);
+      font-size: 16px;
+      max-width: 620px;
+      margin-bottom: 40px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 70px;
+    }
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Contact Details Cards */
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .channel-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .channel-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .channel-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--badge-bg);
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      color: var(--accent-hover);
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+    .channel-details h4 {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-subtle);
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .channel-details a, .channel-details p {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .channel-details a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    /* Interactive Message Card */
+    .message-form-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--card-shadow);
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .form-control {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-control:focus {
+      border-color: var(--accent-hover);
+    }
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .copy-feedback {
+      display: none;
+      font-size: 12px;
+      color: var(--success);
+      margin-top: 6px;
+      font-family: var(--font-mono);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/profile.jpg" alt="Yeasin" class="nav-brand-avatar">
+        Yeasin M. Joy <span>/ CSE</span>
+      </a>
+
+      <div class="nav-right">
+        <nav class="nav-links" id="navLinks">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="projects.html" class="nav-link">Projects</a>
+          <a href="about.html" class="nav-link">About & Experience</a>
+          <a href="contact.html" class="nav-link active">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="assets/cv_yeasin_morshed_joy.pdf" target="_blank" class="btn-resume">
+            <i class="fa-solid fa-file-pdf"></i> Resume
+          </a>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+            <i class="fa-solid fa-sun" id="themeIcon"></i>
+          </button>
+          <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- Contact Header -->
+    <section class="contact-hero">
+      <div class="status-badge">
+        <span class="pulse-dot"></span> Get In Touch
+      </div>
+      <h1 class="contact-title">Let's build something impactful together.</h1>
+      <p class="contact-subtitle">
+        I am currently seeking software engineering internships, junior developer roles, and technical collaborations. Feel free to reach out via email, LinkedIn, or send a quick note below.
+      </p>
+
+      <div class="contact-grid">
+        
+        <!-- Channels List -->
+        <div class="contact-card">
+          <div class="channel-item">
+            <div class="channel-icon"><i class="fa-regular fa-envelope"></i></div>
+            <div class="channel-details">
+              <h4>Email</h4>
+              <a href="mailto:yeasinmorshedjoy@gmail.com" id="emailLink">yeasinmorshedjoy@gmail.com</a>
+              <div style="margin-top: 6px;">
+                <button class="btn btn-secondary" style="padding: 4px 10px; font-size: 12px;" onclick="copyEmail()">
+                  <i class="fa-regular fa-copy"></i> Copy Address
+                </button>
+                <span class="copy-feedback" id="copyMsg">✓ Copied to clipboard!</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="channel-item">
+            <div class="channel-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+            <div class="channel-details">
+              <h4>LinkedIn</h4>
+              <a href="https://www.linkedin.com/in/yeasin-morshed-joy-aa8b80239/" target="_blank" rel="noreferrer">
+                yeasin-morshed-joy <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 11px;"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="channel-item">
+            <div class="channel-icon"><i class="fa-brands fa-github"></i></div>
+            <div class="channel-details">
+              <h4>GitHub</h4>
+              <a href="https://github.com/YeasinJoy" target="_blank" rel="noreferrer">
+                github.com/YeasinJoy <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 11px;"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="channel-item">
+            <div class="channel-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="channel-details">
+              <h4>Location</h4>
+              <p>Dhaka, Bangladesh (Open to Remote & On-site roles)</p>
+            </div>
+          </div>
+
+          <div class="channel-item">
+            <div class="channel-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="channel-details">
+              <h4>Curriculum Vitae</h4>
+              <a href="assets/cv_yeasin_morshed_joy.pdf" target="_blank">
+                Download PDF Resume <i class="fa-solid fa-download" style="font-size: 11px;"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Email Composer -->
+        <div class="message-form-card">
+          <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 6px;">Send a Direct Message</h3>
+          <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 20px;">
+            Fill in your subject and note; clicking send will launch your email client with everything prepared.
+          </p>
+
+          <form onsubmit="handleSendMail(event)">
+            <div class="form-group">
+              <label for="senderName">Your Name</label>
+              <input type="text" id="senderName" class="form-control" placeholder="Jane Doe" required>
+            </div>
+
+            <div class="form-group">
+              <label for="senderSubject">Subject</label>
+              <input type="text" id="senderSubject" class="form-control" placeholder="Opportunity / Collaboration" required>
+            </div>
+
+            <div class="form-group">
+              <label for="senderMessage">Message</label>
+              <textarea id="senderMessage" class="form-control" placeholder="Hi Yeasin, I came across your portfolio and wanted to discuss..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+              Send Message <i class="fa-regular fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Yeasin Morshed Joy · Software Engineer</p>
+      <div class="footer-links">
+        <a href="https://github.com/YeasinJoy" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/yeasin-morshed-joy-aa8b80239/" target="_blank">LinkedIn</a>
+        <a href="mailto:yeasinmorshedjoy@gmail.com">Email</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    function copyEmail() {
+      const email = 'yeasinmorshedjoy@gmail.com';
+      navigator.clipboard.writeText(email).then(() => {
+        const msg = document.getElementById('copyMsg');
+        msg.style.display = 'inline';
+        setTimeout(() => {
+          msg.style.display = 'none';
+        }, 3000);
+      });
+    }
+
+    function handleSendMail(e) {
+      e.preventDefault();
+      const name = document.getElementById('senderName').value;
+      const subject = document.getElementById('senderSubject').value;
+      const message = document.getElementById('senderMessage').value;
+      
+      const fullSubject = encodeURIComponent(`[Portfolio Inquiry] ${subject} - from ${name}`);
+      const body = encodeURIComponent(`Hi Yeasin,\n\n${message}\n\nBest regards,\n${name}`);
+      
+      window.location.href = `mailto:yeasinmorshedjoy@gmail.com?subject=${fullSubject}&body=${body}`;
+    }
+  </script>
+</body>
+</html>
