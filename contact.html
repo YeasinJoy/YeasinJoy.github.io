@@ -245,18 +245,23 @@
         <div class="message-form-card">
           <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 6px;">Send a Direct Message</h3>
           <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 20px;">
-            Fill in your subject and note; clicking send will launch your email client with everything prepared.
+            Choose your preferred way to send: open directly in Gmail (web), your default mail app, or copy the formatted text.
           </p>
 
-          <form onsubmit="handleSendMail(event)">
+          <form id="contactForm" onsubmit="handleSend(event, 'gmail')">
             <div class="form-group">
               <label for="senderName">Your Name</label>
-              <input type="text" id="senderName" class="form-control" placeholder="Jane Doe" required>
+              <input type="text" id="senderName" class="form-control" placeholder="e.g. Jane Doe" required>
+            </div>
+
+            <div class="form-group">
+              <label for="senderEmail">Your Email</label>
+              <input type="email" id="senderEmail" class="form-control" placeholder="e.g. jane@example.com" required>
             </div>
 
             <div class="form-group">
               <label for="senderSubject">Subject</label>
-              <input type="text" id="senderSubject" class="form-control" placeholder="Opportunity / Collaboration" required>
+              <input type="text" id="senderSubject" class="form-control" placeholder="e.g. Software Engineering Opportunity" required>
             </div>
 
             <div class="form-group">
@@ -264,9 +269,24 @@
               <textarea id="senderMessage" class="form-control" placeholder="Hi Yeasin, I came across your portfolio and wanted to discuss..." required></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
-              Send Message <i class="fa-regular fa-paper-plane"></i>
-            </button>
+            <!-- Action Buttons -->
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 14px;">
+              <button type="button" onclick="handleSend(event, 'gmail')" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                <i class="fa-brands fa-google"></i> Open & Send via Gmail (Web)
+              </button>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <button type="button" onclick="handleSend(event, 'mailto')" class="btn btn-secondary" style="justify-content: center; font-size: 13px;">
+                  <i class="fa-regular fa-envelope"></i> Default Mail App
+                </button>
+                <button type="button" onclick="handleSend(event, 'copy')" class="btn btn-secondary" style="justify-content: center; font-size: 13px;">
+                  <i class="fa-regular fa-copy"></i> Copy Message
+                </button>
+              </div>
+            </div>
+
+            <!-- Status Feedback Box -->
+            <div id="statusNotice" style="display: none; margin-top: 16px; padding: 12px; border-radius: 8px; font-size: 13px; line-height: 1.5; border: 1px solid var(--border);"></div>
           </form>
         </div>
 
@@ -301,16 +321,66 @@
       });
     }
 
-    function handleSendMail(e) {
-      e.preventDefault();
-      const name = document.getElementById('senderName').value;
-      const subject = document.getElementById('senderSubject').value;
-      const message = document.getElementById('senderMessage').value;
+    function handleSend(e, mode) {
+      if (e) e.preventDefault();
       
-      const fullSubject = encodeURIComponent(`[Portfolio Inquiry] ${subject} - from ${name}`);
-      const body = encodeURIComponent(`Hi Yeasin,\n\n${message}\n\nBest regards,\n${name}`);
-      
-      window.location.href = `mailto:yeasinmorshedjoy@gmail.com?subject=${fullSubject}&body=${body}`;
+      const nameInput = document.getElementById('senderName');
+      const emailInput = document.getElementById('senderEmail');
+      const subjectInput = document.getElementById('senderSubject');
+      const messageInput = document.getElementById('senderMessage');
+      const notice = document.getElementById('statusNotice');
+
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const subject = subjectInput.value.trim() || 'Portfolio Inquiry';
+      const message = messageInput.value.trim();
+
+      if (!name || !message) {
+        notice.style.display = 'block';
+        notice.style.borderColor = 'rgba(239, 68, 68, 0.4)';
+        notice.style.background = 'rgba(239, 68, 68, 0.08)';
+        notice.style.color = '#f87171';
+        notice.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Please enter your name and message before sending.';
+        return;
+      }
+
+      const formattedSubject = `[Portfolio Inquiry] ${subject} - from ${name}`;
+      const formattedBody = `Hi Yeasin,\n\n${message}\n\n---\nSender Name: ${name}\nSender Email: ${email || 'Not provided'}`;
+
+      const encSubject = encodeURIComponent(formattedSubject);
+      const encBody = encodeURIComponent(formattedBody);
+      const targetEmail = 'yeasinmorshedjoy@gmail.com';
+
+      if (mode === 'gmail') {
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${targetEmail}&su=${encSubject}&body=${encBody}`;
+        const newTab = window.open(gmailUrl, '_blank');
+        
+        notice.style.display = 'block';
+        notice.style.borderColor = 'rgba(16, 185, 129, 0.4)';
+        notice.style.background = 'rgba(16, 185, 129, 0.08)';
+        notice.style.color = '#34d399';
+        notice.innerHTML = `✓ <strong>Opening Gmail in a new tab...</strong><br>If your browser blocked the popup, <a href="${gmailUrl}" target="_blank" style="text-decoration: underline; color: inherit; font-weight: 600;">click here to open Gmail directly</a>.`;
+      } 
+      else if (mode === 'mailto') {
+        const mailtoUrl = `mailto:${targetEmail}?subject=${encSubject}&body=${encBody}`;
+        window.location.href = mailtoUrl;
+
+        notice.style.display = 'block';
+        notice.style.borderColor = 'rgba(59, 130, 246, 0.4)';
+        notice.style.background = 'rgba(59, 130, 246, 0.08)';
+        notice.style.color = '#60a5fa';
+        notice.innerHTML = `✓ <strong>Launching your default mail application...</strong><br>If you don't have a desktop mail app installed, use the <em>"Open & Send via Gmail"</em> button above.`;
+      } 
+      else if (mode === 'copy') {
+        const fullText = `To: ${targetEmail}\nSubject: ${formattedSubject}\n\n${formattedBody}`;
+        navigator.clipboard.writeText(fullText).then(() => {
+          notice.style.display = 'block';
+          notice.style.borderColor = 'rgba(16, 185, 129, 0.4)';
+          notice.style.background = 'rgba(16, 185, 129, 0.08)';
+          notice.style.color = '#34d399';
+          notice.innerHTML = '✓ <strong>Message copied to clipboard!</strong> You can now paste it into any email provider.';
+        });
+      }
     }
   </script>
 </body>
